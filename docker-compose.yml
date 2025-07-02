@@ -1,0 +1,16 @@
+# Define os serviços (contêineres) que compõem a sua aplicação.
+services:
+  # Nome do nosso serviço da API.
+  api:
+    # Instrução para construir a imagem a partir do Dockerfile no diretório atual ('.').
+    build: .
+    # Define um nome amigável para o contêiner para facilitar a identificação.
+    container_name: gestao_escolar_api
+    # Mapeia a porta 8000 da sua máquina (host) para a porta 8000 do contêiner.
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual ('.') no diretório /app do contêiner.
+    # Isso permite o live-reloading e persiste o banco de dados SQLite.
+    volumes:
+      - .:/app
+
